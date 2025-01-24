@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:ReceptenblogApp.ViewModels"
+             x:Class="ReceptenblogApp.Views.AddRecipePage">
+
+    <ContentPage.BindingContext>
+        <vm:RecipeViewModel />
+    </ContentPage.BindingContext>
+
+    <StackLayout Padding="20">
+        <Label Text="Add New Recipe"
+               FontSize="24"
+               HorizontalOptions="CenterAndExpand" />
+
+        <Entry Placeholder="Recipe Name" x:Name="RecipeNameEntry"/>
+        <Entry Placeholder="Ingredients" x:Name="IngredientsEntry"/>
+        <Editor Placeholder="Instructions" x:Name="InstructionsEditor"/>
+
+        <Button Text="Save Recipe" 
+                Command="{Binding SaveRecipeCommand}"
+                CommandParameter="{Binding RecipeName, Ingredients, Instructions}" />
+    </StackLayout>
+</ContentPage>

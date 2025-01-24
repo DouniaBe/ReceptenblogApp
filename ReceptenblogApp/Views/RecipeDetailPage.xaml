@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:ReceptenblogApp.ViewModels"
+             x:Class="ReceptenblogApp.Views.RecipeDetailPage">
+
+    <ContentPage.BindingContext>
+        <vm:RecipeViewModel />
+    </ContentPage.BindingContext>
+
+    <StackLayout>
+        <Label Text="Recipe Details" FontSize="24" HorizontalOptions="Center" />
+        <Label Text="{Binding RecipeDetails.Name}" FontSize="20"/>
+        <Label Text="{Binding RecipeDetails.Instructions}" FontSize="16"/>
+        <ListView ItemsSource="{Binding RecipeDetails.Comments}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Comment}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>
